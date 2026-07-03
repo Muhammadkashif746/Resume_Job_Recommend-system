@@ -1,0 +1,215 @@
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+    color: white;
+    min-height: 100vh;
+}
+
+/* Navbar - Consistent */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 6%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.logo {
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.logo .ai {
+    color: #00d4ff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.8rem;
+    font-weight: 500;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00d4ff;
+}
+
+.btn-get-started {
+    padding: 12px 28px;
+    background: white;
+    color: #0f172a;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-get-started:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+}
+
+/* Main Content */
+.container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.upload-box {
+    background: rgba(255,255,255,0.06);
+    border: 2px dashed rgba(0, 212, 255, 0.3);
+    border-radius: 24px;
+    padding: 4rem 2rem;
+    margin-bottom: 3rem;
+}
+
+.upload-box h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    margin-bottom: 2.5rem;
+}
+
+.file-upload {
+    margin: 2rem 0;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-upload label {
+    display: inline-block;
+    padding: 18px 40px;
+    background: rgba(255,255,255,0.1);
+    border: 2px dashed #00d4ff;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+}
+
+.file-upload label:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: #00d4ff;
+}
+
+.btn {
+    padding: 18px 42px;
+    border-radius: 50px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00d4ff, #6366f1);
+    color: #0f172a;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.5);
+}
+
+/* Results */
+.result {
+    margin-top: 3rem;
+}
+
+.score-card {
+    background: rgba(0, 212, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 2rem 0;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.score-card h3 {
+    font-size: 2rem;
+}
+
+.highlight {
+    color: #00d4ff;
+    font-size: 2.4rem;
+}
+
+.job-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.job-card {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    transition: all 0.4s;
+}
+
+.job-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+}
+
+.match-score {
+    margin-top: 1rem;
+    padding: 8px 18px;
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    border-radius: 30px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0f172a;
+        flex-direction: column;
+        padding: 2rem 0;
+        gap: 1.8rem;
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI - Job Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <span>Resume<span class="ai">AI</span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('search') }}">Search Jobs</a>
+        <a href="{{ url_for('upload_resume') }}">Upload Resume</a>
+        <a href="{{ url_for('upload_resume') }}" class="btn btn-get-started mobile-only">Get Started</a>
+    </div>
+
+    <a href="{{ url_for('upload_resume') }}" class="btn btn-get-started desktop-only">Get Started</a>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Smart Resume Job<br>Recommendation System</h1>
+        <p class="subtitle">
+            A database-driven platform that helps students discover suitable jobs based on their skills, CGPA, 
+            education and interests using Python, Flask and MongoDB.
+        </p>
+        
+        <div class="buttons">
+            <a href="{{ url_for('upload_resume') }}" class="btn btn-primary">Get Recommendations</a>
+            <a href="{{ url_for('search') }}" class="btn btn-secondary">Search Jobs</a>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <div class="icon">📄</div>
+        <h3>Resume Analysis</h3>
+        <p>AI-powered skill extraction and experience evaluation from your resume.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">🎯</div>
+        <h3>Smart Matching</h3>
+        <p>Get personalized job recommendations with accurate match scores.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">📈</div>
+        <h3>Career Growth</h3>
+        <p>Discover opportunities aligned with your skills and aspirations.</p>
+    </div>
+    
+</section>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

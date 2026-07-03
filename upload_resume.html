@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Resume - ResumeAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <span>Resume<span class="ai">AI</span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('search') }}">Search Jobs</a>
+        <a href="{{ url_for('upload_resume') }}">Upload Resume</a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="upload-box">
+        <h1>Upload Your Resume</h1>
+        <p class="subtitle">Let AI analyze your skills and find the best opportunities</p>
+        
+        <form method="POST" enctype="multipart/form-data">
+            <div class="file-upload">
+                <input type="file" id="resume" name="resume" accept=".pdf,.docx" required>
+                <label for="resume">Choose Resume File</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze Resume</button>
+        </form>
+    </div>
+
+    {% if result %}
+    <div class="result">
+        <h2>Analysis Result</h2>
+        <div class="score-card">
+            <h3>Resume Score: <span class="highlight">{{ score }}%</span></h3>
+        </div>
+        
+        <h3>Recommended Jobs</h3>
+        <div class="job-cards">
+            {% for job in recommended_jobs %}
+            <div class="job-card">
+                <h4>{{ job.job_title }}</h4>
+                <p>{{ job.company }} • {{ job.location }}</p>
+                <div class="match-score">{{ job.match_score }}% Match</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+</script>
+</body>
+</html>

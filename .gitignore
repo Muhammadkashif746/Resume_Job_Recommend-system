@@ -1,0 +1,17 @@
+# Python environment
+venv/
+.venv/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local configuration and uploads
+uploads/*
+!uploads/.gitkeep
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
